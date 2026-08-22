@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dork Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- This line links our CSS file, using a plain relative path -->
+  <link rel="stylesheet" href="static/style.css" />
+
+  <!-- Google Fonts: a clean sans-serif for labels, a monospace font for
+       the generated query (so it reads like a command / search string) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__title">
+      <span class="logo-mark">&gt;_</span>
+      <div>
+        <h1>Dork Builder</h1>
+        <p class="subtitle">Advanced Google Dorking</p>
+      </div>
+    </div>
+    <div class="student-tag">
+      <label for="studentName">Student Name</label>
+      <input type="text" id="studentName" placeholder="e.g. Abhinav" />
+    </div>
+  </header>
+
+  <!-- This banner mirrors the "Scope & Authorized Use" section of the brief.
+       It's shown on every page load as a constant reminder. -->
+  <section class="scope-banner">
+    <strong>Authorized use only:</strong> This panel is to learn how
+    exposed content can be found via search engines, so you can
+    better secure your own organization's public footprint. Only
+    investigate systems that you own or are explicitly authorized to assess.
+  </section>
+
+  <main class="layout">
+
+    <!-- ============ LEFT: THE FORM BUILDER ============ -->
+    <section class="panel" id="builderPanel">
+      <h2>1. Build your query</h2>
+      <p class="panel__hint">Fill in only the fields you need — empty fields are skipped.</p>
+
+      <div class="field">
+        <label for="freeText">Keywords</label>
+        <input type="text" id="freeText" placeholder="e.g. annual report" />
+        <small>Plain search words, just like a normal Google search.</small>
+      </div>
+
+      <div class="field">
+        <label for="site">site:</label>
+        <input type="text" id="site" placeholder="e.g. example.com" />
+        <small>Limits results to one website or domain.</small>
+      </div>
+
+      <div class="field">
+        <label for="filetype">filetype:</label>
+        <input type="text" id="filetype" placeholder="e.g. pdf" />
+        <small>Only shows results that are a specific file type.</small>
+      </div>
+
+      <div class="field">
+        <label for="intitle">intitle:</label>
+        <input type="text" id="intitle" placeholder="e.g. index of" />
+        <small>Only shows pages with this text in the page title.</small>
+      </div>
+
+      <div class="field">
+        <label for="inurl">inurl:</label>
+        <input type="text" id="inurl" placeholder="e.g. admin" />
+        <small>Only shows pages with this text in the web address (URL).</small>
+      </div>
+
+      <div class="field">
+        <label for="intext">intext:</label>
+        <input type="text" id="intext" placeholder="e.g. confidential" />
+        <small>Only shows pages containing this text anywhere in the page.</small>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="dateAfter">After date</label>
+          <input type="date" id="dateAfter" />
+        </div>
+        <div class="field">
+          <label for="dateBefore">Before date</label>
+          <input type="date" id="dateBefore" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="exclude">Exclude words</label>
+        <input type="text" id="exclude" placeholder="e.g. sample, demo" />
+        <small>Comma-separated words to leave out of the results.</small>
+      </div>
+    </section>
+
+    <!-- ============ RIGHT: OUTPUT + TEMPLATES + HISTORY ============ -->
+    <section class="panel" id="outputPanel">
+      <h2>2. Your query</h2>
+      <div class="query-box">
+        <code id="queryPreview">&nbsp;</code>
+      </div>
+      <div class="query-actions">
+        <button id="copyBtn" class="btn btn--ghost">Copy query</button>
+        <button id="openBtn" class="btn btn--primary">Open in Google</button>
+      </div>
+
+      <h2>3. Template library</h2>
+      <p class="panel__hint">Click a category to load an example and see why it matters.</p>
+      <div id="templateList" class="template-list"></div>
+      <div id="templateNote" class="note"></div>
+
+      <h2>4. Your search history</h2>
+      <ul id="historyList" class="history-list"></ul>
+      <button id="clearHistoryBtn" class="btn btn--ghost btn--small">Clear history</button>
+    </section>
+
+  </main>
+
+  <!-- This line links our JavaScript file, same idea as the CSS link above -->
+  <script src="static/script.js"></script>
+</body>
+</html>
